@@ -28,4 +28,14 @@ class AlunoController extends Controller
     {
         return $this->alunoService->insertAluno($request);
     }
+
+    public function update(int $id, Request $request)
+    {
+        return $this->alunoService->update($id, $request);
+    }
+
+    public function delete(int $id)
+    {
+        return $this->alunoService->delete($id);
+    }
 }

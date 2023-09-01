@@ -25,7 +25,7 @@ class AlunoRepository implements AlunoInterface
     return $aluno;
   }
 
-  public function getAlunosById(int $id): Model
+  public function getAlunosById(int $id): ?Model
   {
     $aluno = Aluno::find($id);
     return $aluno;
@@ -35,6 +35,19 @@ class AlunoRepository implements AlunoInterface
   {
     $aluno = Aluno::create($request->all());
 
+    return $aluno;
+  }
+
+  public function update(Aluno $aluno, Request $request)
+  {
+    $aluno->update($request->all());
+
+    return $aluno;
+  }
+
+  public function delete(Aluno $aluno)
+  {
+    $aluno->delete();
     return $aluno;
   }
 }
