@@ -23,11 +23,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('aluno')->group(function () {
     Route::get('/getAllAlunos', [AlunoController::class, 'getAlunos']);
     Route::post('/insert', [AlunoController::class, 'insertAluno']);
+    Route::put('/update/{id}', [AlunoController::class, 'update']);
+    Route::delete('/delete/{id}', [AlunoController::class, 'delete']);
     Route::get('/getAlunosById/{id}', [AlunoController::class, 'getAlunosbyId']);
 });
 
 Route::prefix('disciplina')->group(function () {
     Route::get('/getAllDisciplinas', [DisciplinaController::class, 'getAllDisciplinas']);
+    Route::post('/store', [DisciplinaController::class, 'insertDisciplina']);
     Route::get('/getAlunosById/{id}', [DisciplinaController::class, 'getAlunosbyId']);
     Route::delete('/delete/{id}', [DisciplinaController::class, 'deleteDisciplina']);
     Route::get('/disciplinasByIdAluno/{idAluno}', [DisciplinaController::class, 'disciplinasByIdAluno']);
