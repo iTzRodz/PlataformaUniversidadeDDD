@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AlunoController;
+use App\Http\Controllers\AlunoDisciplinaController;
 use App\Http\Controllers\DisciplinaController;
+use App\Models\Disciplina;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,7 +33,12 @@ Route::prefix('aluno')->group(function () {
 Route::prefix('disciplina')->group(function () {
     Route::get('/getAllDisciplinas', [DisciplinaController::class, 'getAllDisciplinas']);
     Route::post('/store', [DisciplinaController::class, 'insertDisciplina']);
-    Route::get('/getAlunosById/{id}', [DisciplinaController::class, 'getAlunosbyId']);
+    Route::put('/update/{id}', [DisciplinaController::class, 'updateDisciplina']);
+    Route::get('/getDisciplinaById/{id}', [DisciplinaController::class, 'getDisciplinaById']);
     Route::delete('/delete/{id}', [DisciplinaController::class, 'deleteDisciplina']);
     Route::get('/disciplinasByIdAluno/{idAluno}', [DisciplinaController::class, 'disciplinasByIdAluno']);
+});
+
+Route::prefix('aluno_disciplina')->group(function () {
+    Route::post('/store', [AlunoDisciplinaController::class, 'store']);
 });
