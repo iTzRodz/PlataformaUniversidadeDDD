@@ -17,4 +17,9 @@ class Disciplina extends Model
         'disponivel',
         'ead'
     ];
+
+    public function Aluno()
+    {
+        return $this->belongsToMany(Aluno::class, 'aluno_disciplina');
+    }
 }

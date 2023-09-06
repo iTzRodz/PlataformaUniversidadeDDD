@@ -16,7 +16,11 @@ class Aluno extends Model
         'sobrenome',
         'email',
         'dataCadastro',
-        'ativo',
-        'disciplina_id'
+        'ativo'
     ];
+
+    public function Disciplina()  
+    {
+        return $this->BelongsToMany(Disciplina::class, 'aluno_disciplina');
+    }
 }
