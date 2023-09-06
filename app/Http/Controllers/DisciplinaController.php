@@ -14,6 +14,11 @@ class DisciplinaController extends Controller
         $this->service = $disciplinaService;
     }
 
+    public function getDisciplinaById(int $id)
+    {
+        return $this->service->getDisciplinaById($id);
+    }
+
     public function getAllDisciplinas()
     {
         return $this->service->getAllDisciplinas();

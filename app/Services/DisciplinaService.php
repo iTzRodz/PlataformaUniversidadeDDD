@@ -24,6 +24,11 @@ class DisciplinaService
     return $this->interface->getAllDisciplinas();
   }
 
+  public function getDisciplinaById(int $id) : ?Model
+  {
+    return $this->interface->getDisciplinaById($id);
+  }
+
   public function insertDisciplina(Request $request)
   {
     return $this->interface->insertDisciplina($request);
@@ -31,7 +36,13 @@ class DisciplinaService
 
   public function updateDisciplina(int $id, Request $request)
   {
-    return $this->interface->updateDisciplina($id, $request);
+    $disciplina = $this->getDisciplinaById($id);
+
+    if ($disciplina == null) {
+      throw new Exception("Disciplina não encontrada", 1);
+    }
+
+    return $this->interface->updateDisciplina($disciplina, $request);
   }
 
   public function deleteDisciplina(int $id)

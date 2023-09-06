@@ -3,8 +3,11 @@
 namespace App\Infra\Repositories;
 
 use App\Domain\Disciplinas\Contracts\DisciplinaInterface;
+use App\Models\Aluno;
+use App\Models\AlunoDisciplina;
 use App\Models\Disciplina;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -25,15 +28,22 @@ class DisciplinaRepository implements DisciplinaInterface
     return $disciplina;
   }
 
+  public function getDisciplinaById(int $id) : ?Model
+  {
+    $disciplina = Disciplina::find($id);
+
+    return $disciplina;
+  }
+
   public function insertDisciplina(Request $request)
   {
     $disciplina = Disciplina::create($request->all());
     return $disciplina;
   }
 
-  public function updateDisciplina(int $id ,Request $request)
+  public function updateDisciplina(Disciplina $disciplina ,Request $request)
   {
-    $disciplina = Disciplina::find($id);
+    $disciplina->update($request->all());
 
     return $disciplina;
   }
@@ -46,14 +56,16 @@ class DisciplinaRepository implements DisciplinaInterface
 
   public function disciplinasByIdAluno(int $idAluno)
   {
-    $query = DB::table('disciplinas')
-      ->join('alunos', 'disciplinas.id', '=', 'alunos.disciplina_id')
-      ->select(
-        'disciplinas.nome',
-        'alunos.nome AS nome_aluno'
-        )
-      ->where('alunos.id', '=', $idAluno)
-      ->get();
+    $query = Aluno::find($idAluno);
+
+    foreach ($query->Disciplina as $disciplina) {
+      $disciplinas = [
+        'nome' => $disciplina->nome,
+        'valor' => $disciplina->valor,
+        'disponivel' => $disciplina->disponivel,
+        'ead' => $disciplina->ead
+      ];
+    }
 
     return $query;
   }
