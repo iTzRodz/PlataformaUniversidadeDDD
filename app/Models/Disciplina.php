@@ -20,6 +20,13 @@ class Disciplina extends Model
 
     public function Aluno()
     {
-        return $this->belongsToMany(Aluno::class, 'aluno_disciplina');
+        return $this->belongsToMany(Aluno::class, 'aluno_disciplina')
+            ->withPivot('periodo_id');
+    }
+
+    public function Periodo()
+    {
+        return $this->belongsToMany(Periodo::class, 'aluno_disciplina')
+            ->withPivot('aluno_id');
     }
 }
