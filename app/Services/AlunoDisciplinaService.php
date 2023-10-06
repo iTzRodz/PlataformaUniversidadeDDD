@@ -29,9 +29,14 @@ class AlunoDisciplinaService
   {
     $aluno_id = $request->aluno_id;
     $aluno = $this->alunoInterface->getAlunosById($aluno_id);
-    
+    $periodo_id = $request->periodo_id;
+
     if ($aluno == null) {
       throw new Exception("Aluno não encontrado", 1);
+    }
+
+    if ($periodo_id == null) {
+      throw new Exception("Periodo não encontrado", 1);
     }
     
     foreach ($request->disciplinas as $disciplina) {
@@ -41,10 +46,14 @@ class AlunoDisciplinaService
         throw new Exception("Disciplina não encontrada", 1);
       }
 
-      $response = $this->interface->store($aluno_id, $disciplina["disciplina_id"]);
+      $response = $this->interface->store($aluno_id, $disciplina["disciplina_id"], $periodo_id);
     }
 
     return response()->json($response, 201);
   }
 
+  public function getTeste(int $id)
+  {
+    return $this->interface->getTeste($id);
+  }
 }
