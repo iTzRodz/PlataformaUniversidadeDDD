@@ -56,16 +56,9 @@ class DisciplinaRepository implements DisciplinaInterface
 
   public function disciplinasByIdAluno(int $idAluno)
   {
-    $query = Aluno::find($idAluno);
+    $query = Aluno::with('Disciplina.periodo')
+    ->find($idAluno);
 
-    foreach ($query->Disciplina as $disciplina) {
-      $disciplinas = [
-        'nome' => $disciplina->nome,
-        'valor' => $disciplina->valor,
-        'disponivel' => $disciplina->disponivel,
-        'ead' => $disciplina->ead
-      ];
-    }
 
     return $query;
   }
