@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\AlunoDisciplinaController;
+use App\Http\Controllers\BoletimController;
 use App\Http\Controllers\DisciplinaController;
+use App\Http\Controllers\NotaController;
+use App\Http\Controllers\PeriodoController;
 use App\Models\Disciplina;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +42,21 @@ Route::prefix('disciplina')->group(function () {
     Route::get('/disciplinasByIdAluno/{idAluno}', [DisciplinaController::class, 'disciplinasByIdAluno']);
 });
 
+Route::prefix('periodo')->group(function () {
+    Route::post('store', [PeriodoController::class, 'store']);
+});
+
+Route::prefix('nota')->group(function () {
+    Route::post('store', [NotaController::class, 'store']);
+    Route::get('getNotasByAlunoDisciplina/{aluno_disciplina}', [NotaController::class, 'getNotasByAlunoDisciplina']);
+});
+
+Route::prefix('boletim')->group(function () {
+    Route::post('store', [BoletimController::class, 'store']);
+    Route::get('getByIdAluno/{aluno_id}', [BoletimController::class, 'store']);
+});
+
 Route::prefix('aluno_disciplina')->group(function () {
     Route::post('/store', [AlunoDisciplinaController::class, 'store']);
+    Route::get('/get/{id}', [AlunoDisciplinaController::class, 'getTeste']);
 });
