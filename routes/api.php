@@ -52,11 +52,9 @@ Route::prefix('nota')->group(function () {
 });
 
 Route::prefix('boletim')->group(function () {
-    Route::post('store', [BoletimController::class, 'store']);
-    Route::get('getByIdAluno/{aluno_id}', [BoletimController::class, 'store']);
+    Route::get('getByIdAluno/{aluno_id}', [BoletimController::class, 'getBoletimByAluno']);
 });
 
 Route::prefix('aluno_disciplina')->group(function () {
     Route::post('/store', [AlunoDisciplinaController::class, 'store']);
-    Route::get('/get/{id}', [AlunoDisciplinaController::class, 'getTeste']);
 });
