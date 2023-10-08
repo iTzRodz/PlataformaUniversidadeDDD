@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\DisciplinaRequest;
+use App\Http\Requests\DisciplinaUpdateRequest;
 use App\Services\DisciplinaService;
 use Illuminate\Http\Request;
 
@@ -30,7 +31,7 @@ class DisciplinaController extends Controller
         return $this->service->insertDisciplina($request);
     }
 
-    public function updateDisciplina(int $id, Request $request)  
+    public function updateDisciplina(int $id, DisciplinaUpdateRequest $request)  
     {
         return $this->service->updateDisciplina($id, $request);
     }

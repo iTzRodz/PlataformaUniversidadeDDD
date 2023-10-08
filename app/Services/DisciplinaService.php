@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Domain\Disciplinas\Contracts\DisciplinaInterface;
 use App\Http\Requests\DisciplinaRequest;
+use App\Http\Requests\DisciplinaUpdateRequest;
 use App\Models\Disciplina;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
@@ -40,7 +41,7 @@ class DisciplinaService
     return $this->interface->insertDisciplina($request);
   }
 
-  public function updateDisciplina(int $id, Request $request)
+  public function updateDisciplina(int $id, DisciplinaUpdateRequest $request)
   {
     $disciplina = $this->getDisciplinaById($id);
 
@@ -54,7 +55,7 @@ class DisciplinaService
   public function deleteDisciplina(int $id)
   {
     try {
-      $disciplina = Disciplina::find($id);
+      $disciplina = $this->getDisciplinaById($id);
       if ($disciplina == null) {
         throw new Exception("Nenhuma disciplina foi encontrada", 1);
       }

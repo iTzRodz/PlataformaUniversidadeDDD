@@ -24,7 +24,8 @@ class DisciplinaRepository implements DisciplinaInterface
 
   public function getAllDisciplinas(): Collection
   {
-    $disciplina = Disciplina::all();
+    //$disciplina = Disciplina::all();
+    $disciplina = $this->model->all();
 
     return $disciplina;
   }
@@ -42,14 +43,14 @@ class DisciplinaRepository implements DisciplinaInterface
     return $disciplina;
   }
 
-  public function updateDisciplina(Disciplina $disciplina ,Request $request)
+  public function updateDisciplina(Disciplina $disciplina ,Request $request) : ?Disciplina
   {
     $disciplina->update($request->all());
 
     return $disciplina;
   }
 
-  public function deleteDisciplina($disciplina)
+  public function deleteDisciplina(Disciplina $disciplina)
   {
     $disciplina->delete();
     return $disciplina;
