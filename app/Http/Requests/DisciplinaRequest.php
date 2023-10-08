@@ -23,7 +23,7 @@ class DisciplinaRequest extends CustomFormRequest
     {
         return [
             "nome" => 'required|string|min:3|max:255',
-            "valor" => 'required|decimal:2',
+            "valor" => 'required|numeric',
             "disponivel" => 'required|boolean',
             "ead" => 'required|boolean',
         ];
@@ -33,7 +33,7 @@ class DisciplinaRequest extends CustomFormRequest
     {
         return [
             'required' => 'O campo :attribute é obrigatorio',
-            'decimal' => 'O campo :attribute é to tipo decimal',
+            'numeric' => 'O campo :attribute é to tipo numerico',
             'min' => 'O minímo de caracteres do campo :attribute é de 3 digitos',
             'max' => 'O maximo de caracteres do campo :attribute é de 255 digitos',
             'string'=> 'O campo :attribute é do tipo texto',
