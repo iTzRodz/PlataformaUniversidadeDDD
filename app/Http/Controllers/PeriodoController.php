@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PeriodoRequest;
 use App\Services\PeriodoService;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class PeriodoController extends Controller
         $this->service = $periodoService;
     }
 
-    public function store(Request $request)
+    public function store(PeriodoRequest $request)
     {
         return $this->service->store($request);
     }
