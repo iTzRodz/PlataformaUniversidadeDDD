@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Domain\Disciplinas\Contracts\DisciplinaInterface;
+use App\Http\Requests\DisciplinaRequest;
 use App\Models\Disciplina;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
@@ -26,10 +27,15 @@ class DisciplinaService
 
   public function getDisciplinaById(int $id) : ?Model
   {
-    return $this->interface->getDisciplinaById($id);
+    $disciplina = $this->interface->getDisciplinaById($id);
+
+    if ($disciplina == null) {
+      throw new Exception("Disciplina não encontrada", 1);
+    }
+    return $disciplina;
   }
 
-  public function insertDisciplina(Request $request)
+  public function insertDisciplina(DisciplinaRequest $request)
   {
     return $this->interface->insertDisciplina($request);
   }
