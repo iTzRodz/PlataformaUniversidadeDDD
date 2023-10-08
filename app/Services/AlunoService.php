@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Domain\Alunos\Contracts\AlunoInterface;
+use App\Http\Requests\AlunoRequest;
 use App\Models\Aluno;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
@@ -24,12 +25,18 @@ class AlunoService
     return $this->interface->getAlunos();
   }
 
-  public function getAlunosbyId(int $id): ?Model
+  public function getAlunosbyId(int $id): ?Aluno
   {
-    return $this->interface->getAlunosById($id);
+    
+    $aluno = $this->interface->getAlunosById($id);
+    if ($aluno == null) {
+      throw new Exception("Aluno não encontrado! Favor vericar o codigo do aluno", 1);
+      
+    };
+    return $aluno;
   }
 
-  public function insertAluno(Request $request)
+  public function insertAluno(AlunoRequest $request)
   {
     return $this->interface->insertAluno($request);
   }
