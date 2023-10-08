@@ -31,7 +31,7 @@ class AlunoDisciplinaRepository implements AlunoDisciplinaInterface
   public function getTeste($id)
   {
     // $query = Aluno::with('Disciplina.Notas')->find($id);
-    $query = AlunoDisciplina::where('aluno_id', $id)->with('Disciplina', 'Nota')
+    $query = AlunoDisciplina::where('aluno_id', $id)->with('Aluno', 'Disciplina.periodo', 'Nota')
       ->get();
 
     
