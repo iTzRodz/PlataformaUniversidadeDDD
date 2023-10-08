@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Domain\AlunoDisciplina\Contracts\AlunoDisciplinaInterface;
 use App\Domain\Alunos\Contracts\AlunoInterface;
 use App\Domain\Disciplinas\Contracts\DisciplinaInterface;
+use App\Http\Requests\AlunoDisciplinaRequest;
 use App\Models\Disciplina;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
@@ -25,7 +26,7 @@ class AlunoDisciplinaService
     $this->disciplinaInterface = $disciplinaInterface;
   }
 
-  public function store(Request $request)
+  public function store(AlunoDisciplinaRequest $request)
   {
     $aluno_id = $request->aluno_id;
     $aluno = $this->alunoInterface->getAlunosById($aluno_id);
