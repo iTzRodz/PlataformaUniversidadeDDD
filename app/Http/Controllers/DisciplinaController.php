@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DisciplinaRequest;
 use App\Services\DisciplinaService;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,7 @@ class DisciplinaController extends Controller
         return $this->service->getAllDisciplinas();
     }
 
-    public function insertDisciplina(Request $request)
+    public function insertDisciplina(DisciplinaRequest $request)
     {
         return $this->service->insertDisciplina($request);
     }

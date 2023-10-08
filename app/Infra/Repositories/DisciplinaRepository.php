@@ -3,6 +3,7 @@
 namespace App\Infra\Repositories;
 
 use App\Domain\Disciplinas\Contracts\DisciplinaInterface;
+use App\Http\Requests\DisciplinaRequest;
 use App\Models\Aluno;
 use App\Models\AlunoDisciplina;
 use App\Models\Disciplina;
@@ -35,7 +36,7 @@ class DisciplinaRepository implements DisciplinaInterface
     return $disciplina;
   }
 
-  public function insertDisciplina(Request $request)
+  public function insertDisciplina(DisciplinaRequest $request)
   {
     $disciplina = Disciplina::create($request->all());
     return $disciplina;
