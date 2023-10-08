@@ -4,6 +4,7 @@ namespace App\Infra\Repositories;
 
 use App\Domain\Alunos\Contracts\AlunoInterface;
 use App\Http\Requests\AlunoRequest;
+use App\Http\Requests\AlunoUpdateRequest;
 use App\Models\Aluno;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -39,7 +40,7 @@ class AlunoRepository implements AlunoInterface
     return $aluno;
   }
 
-  public function update(Aluno $aluno, Request $request)
+  public function update(Aluno $aluno, AlunoUpdateRequest $request) : Aluno
   {
     $aluno->update($request->all());
 

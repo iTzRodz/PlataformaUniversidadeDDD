@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AlunoRequest;
+use App\Http\Requests\AlunoUpdateRequest;
 use App\Services\AlunoService;
 use Illuminate\Http\Request;
 
@@ -30,7 +31,7 @@ class AlunoController extends Controller
         return $this->alunoService->insertAluno($request);
     }
 
-    public function update(int $id, Request $request)
+    public function update(int $id, AlunoUpdateRequest $request)
     {
         return $this->alunoService->update($id, $request);
     }

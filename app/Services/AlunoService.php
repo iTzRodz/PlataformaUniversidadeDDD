@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Domain\Alunos\Contracts\AlunoInterface;
 use App\Http\Requests\AlunoRequest;
+use App\Http\Requests\AlunoUpdateRequest;
 use App\Models\Aluno;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
@@ -41,7 +42,7 @@ class AlunoService
     return $this->interface->insertAluno($request);
   }
 
-  public function update(int $id, Request $request)
+  public function update(int $id, AlunoUpdateRequest $request)
   {
     $aluno = $this->getAlunosbyId($id);
 
