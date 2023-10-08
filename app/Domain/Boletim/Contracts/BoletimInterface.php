@@ -7,6 +7,5 @@ use Illuminate\Http\Request;
 
 interface BoletimInterface
 {
-  public function store(Request $request): Boletim;
-  public function getBoletimByIdAluno(int $aluno_id): ?Boletim;
+  public function getBoletimByAluno(int $aluno_id);
 }

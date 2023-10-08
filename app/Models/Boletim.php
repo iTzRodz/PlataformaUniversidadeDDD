@@ -15,4 +15,9 @@ class Boletim extends Model
         'nota_id',
         'frequencia',
     ];
+
+    // public function Nota()
+    // {
+    //     return $this->hasMany(Nota::class, 'nota_id');
+    // }
 }
