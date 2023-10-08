@@ -24,11 +24,11 @@ class AlunoDisciplina extends Model
 
     public function Aluno()
     {
-        return $this->belongsToMany(Aluno::class, 'aluno_disciplina', 'aluno_id');
+        return $this->belongsTo(Aluno::class);
     }
 
     public function Disciplina()
     {
-        return $this->belongsToMany(Disciplina::class, 'aluno_disciplina', 'disciplina_id');
+        return $this->belongsTo(Disciplina::class);
     }
 }
