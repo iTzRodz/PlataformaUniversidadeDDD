@@ -2,15 +2,11 @@
 
 namespace App\Services;
 
-use App\Domain\AlunoDisciplina\Contracts\AlunoDisciplinaInterface;
-use App\Domain\Alunos\Contracts\AlunoInterface;
-use App\Domain\Disciplinas\Contracts\DisciplinaInterface;
 use App\Http\Requests\AlunoDisciplinaRequest;
-use App\Models\Disciplina;
+use App\Infra\Contracts\AlunoDisciplinaInterface;
+use App\Infra\Contracts\AlunoInterface;
+use App\Infra\Contracts\DisciplinaInterface;
 use Exception;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 
 class AlunoDisciplinaService
 {
@@ -53,8 +49,4 @@ class AlunoDisciplinaService
     return response()->json($response, 201);
   }
 
-  public function getTeste(int $id)
-  {
-    return $this->interface->getTeste($id);
-  }
 }

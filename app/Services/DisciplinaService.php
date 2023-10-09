@@ -2,9 +2,9 @@
 
 namespace App\Services;
 
-use App\Domain\Disciplinas\Contracts\DisciplinaInterface;
 use App\Http\Requests\DisciplinaRequest;
 use App\Http\Requests\DisciplinaUpdateRequest;
+use App\Infra\Contracts\DisciplinaInterface;
 use App\Models\Disciplina;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;

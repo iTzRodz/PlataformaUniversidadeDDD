@@ -1,8 +1,8 @@
 <?php
 namespace App\Services;
 
-use App\Domain\Alunos\Contracts\AlunoInterface;
-use App\Domain\Boletim\Contracts\BoletimInterface;
+use App\Infra\Contracts\AlunoInterface;
+use App\Infra\Contracts\BoletimInterface;
 use Exception;
 use Illuminate\Http\Request;
 

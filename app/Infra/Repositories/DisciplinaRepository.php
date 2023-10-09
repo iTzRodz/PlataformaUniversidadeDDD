@@ -2,15 +2,13 @@
 
 namespace App\Infra\Repositories;
 
-use App\Domain\Disciplinas\Contracts\DisciplinaInterface;
+use App\Domain\Models\Aluno\Aluno;
+use App\Domain\Models\Disciplina\Disciplina;
 use App\Http\Requests\DisciplinaRequest;
-use App\Models\Aluno;
-use App\Models\AlunoDisciplina;
-use App\Models\Disciplina;
+use App\Infra\Contracts\DisciplinaInterface;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class DisciplinaRepository implements DisciplinaInterface
 {
@@ -25,25 +23,20 @@ class DisciplinaRepository implements DisciplinaInterface
   public function getAllDisciplinas(): Collection
   {
     //$disciplina = Disciplina::all();
-    $disciplina = $this->model->all();
-
-    return $disciplina;
+    return $this->model->all();
   }
 
   public function getDisciplinaById(int $id) : ?Model
   {
-    $disciplina = Disciplina::find($id);
-
-    return $disciplina;
+    return $this->model->find($id);
   }
 
   public function insertDisciplina(DisciplinaRequest $request)
   {
-    $disciplina = Disciplina::create($request->all());
-    return $disciplina;
+    return $this->model->create($request->all());
   }
 
-  public function updateDisciplina(Disciplina $disciplina ,Request $request) : ?Disciplina
+  public function updateDisciplina(Disciplina $disciplina, Request $request) : ?Disciplina
   {
     $disciplina->update($request->all());
 
@@ -58,7 +51,7 @@ class DisciplinaRepository implements DisciplinaInterface
 
   public function disciplinasByIdAluno(int $idAluno)
   {
-    $query = Aluno::with('Disciplina.periodo')
+    $query = Aluno::with('Disciplina')
     ->find($idAluno);
 
 

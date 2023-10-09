@@ -2,9 +2,8 @@
 
 namespace App\Infra\Repositories;
 
-use App\Domain\AlunoDisciplina\Contracts\AlunoDisciplinaInterface;
-use App\Models\Aluno;
-use App\Models\AlunoDisciplina;
+use App\Domain\Models\AlunoDisciplina\AlunoDisciplina;
+use App\Infra\Contracts\AlunoDisciplinaInterface;
 
 
 class AlunoDisciplinaRepository implements AlunoDisciplinaInterface
@@ -28,13 +27,4 @@ class AlunoDisciplinaRepository implements AlunoDisciplinaInterface
     return $alunoDisciplina;
   }
 
-  public function getTeste($id)
-  {
-    // $query = Aluno::with('Disciplina.Notas')->find($id);
-    $query = AlunoDisciplina::where('aluno_id', $id)->with('Aluno', 'Disciplina.periodo', 'Nota')
-      ->get();
-
-    
-    return $query;
-  }
 }

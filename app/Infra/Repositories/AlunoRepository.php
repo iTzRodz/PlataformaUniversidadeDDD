@@ -2,13 +2,12 @@
 
 namespace App\Infra\Repositories;
 
-use App\Domain\Alunos\Contracts\AlunoInterface;
+use App\Domain\Models\Aluno\Aluno;
 use App\Http\Requests\AlunoRequest;
 use App\Http\Requests\AlunoUpdateRequest;
-use App\Models\Aluno;
+use App\Infra\Contracts\AlunoInterface;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
+
 
 class AlunoRepository implements AlunoInterface
 {
@@ -22,22 +21,17 @@ class AlunoRepository implements AlunoInterface
 
   public function getAlunos(): Collection
   {
-    $aluno = Aluno::all();
-
-    return $aluno;
+    return $this->model->all();
   }
 
   public function getAlunosById(int $id): ?Aluno
   {
-    $aluno = Aluno::find($id);
-    return $aluno;
+    return $this->model->find($id);
   }
 
   public function insertAluno(AlunoRequest $request)
   {
-    $aluno = Aluno::create($request->all());
-
-    return $aluno;
+    return $this->model->create($request->all());
   }
 
   public function update(Aluno $aluno, AlunoUpdateRequest $request) : Aluno

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\Periodos\Contracts;
+namespace App\Infra\Contracts;
 
+use App\Domain\Models\Periodo\Periodo;
 use App\Http\Requests\PeriodoRequest;
-use App\Models\Periodo;
 use Illuminate\Http\Request;
 
 interface PeriodoInterface 

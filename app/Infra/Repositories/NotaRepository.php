@@ -2,8 +2,8 @@
 
 namespace App\Infra\Repositories;
 
-use App\Domain\Notas\Contracts\NotaInterface;
-use App\Models\Nota;
+use App\Domain\Models\Nota\Nota;
+use App\Infra\Contracts\NotaInterface;
 use Illuminate\Http\Request;
 
 class NotaRepository implements NotaInterface

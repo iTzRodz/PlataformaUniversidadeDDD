@@ -1,11 +1,9 @@
 <?php
 namespace App\Services;
 
-use App\Domain\Periodos\Contracts\PeriodoInterface;
+use App\Domain\Models\Periodo\Periodo;
 use App\Http\Requests\PeriodoRequest;
-use App\Models\Periodo;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Http\Request;
+use App\Infra\Contracts\PeriodoInterface;
 
 class PeriodoService 
 {

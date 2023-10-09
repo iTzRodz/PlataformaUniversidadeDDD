@@ -1,9 +1,9 @@
 <?php
 namespace App\Infra\Repositories;
 
-use App\Domain\Periodos\Contracts\PeriodoInterface;
+use App\Domain\Models\Periodo\Periodo;
 use App\Http\Requests\PeriodoRequest;
-use App\Models\Periodo;
+use App\Infra\Contracts\PeriodoInterface;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 

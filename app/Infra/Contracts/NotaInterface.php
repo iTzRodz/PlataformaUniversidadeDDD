@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\Notas\Contracts;
+namespace App\Infra\Contracts;
 
-use App\Models\Nota;
+use App\Domain\Models\Nota\Nota;
 use Illuminate\Http\Request;
 
 interface NotaInterface

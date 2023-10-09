@@ -1,7 +1,8 @@
 <?php
+namespace App\Domain\Models\Aluno;
 
-namespace App\Models;
-
+use App\Domain\Models\Disciplina\Disciplina;
+use App\Domain\Models\Periodo\Periodo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

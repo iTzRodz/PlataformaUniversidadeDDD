@@ -20,8 +20,4 @@ class AlunoDisciplinaController extends Controller
         return $this->service->store($request);
     }
 
-    public function getTeste(int $id)
-    {
-        return $this->service->getTeste($id);
-    }
 }

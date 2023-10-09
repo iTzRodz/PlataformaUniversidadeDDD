@@ -1,6 +1,5 @@
 <?php
-
-namespace App\Models;
+namespace App\Domain\Models\Nota;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

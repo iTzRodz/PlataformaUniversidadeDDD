@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Domain\Notas\Contracts\NotaInterface;
+use App\Infra\Contracts\NotaInterface;
 use Illuminate\Http\Request;
 
 class NotaService

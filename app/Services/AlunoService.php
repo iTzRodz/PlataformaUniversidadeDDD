@@ -2,10 +2,10 @@
 
 namespace App\Services;
 
-use App\Domain\Alunos\Contracts\AlunoInterface;
+use App\Domain\Models\Aluno\Aluno;
 use App\Http\Requests\AlunoRequest;
 use App\Http\Requests\AlunoUpdateRequest;
-use App\Models\Aluno;
+use App\Infra\Contracts\AlunoInterface;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;

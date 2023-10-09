@@ -1,6 +1,5 @@
 <?php
-
-namespace App\Models;
+namespace App\Domain\Models\Boletim;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

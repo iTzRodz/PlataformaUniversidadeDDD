@@ -1,7 +1,9 @@
 <?php
+namespace App\Domain\Models\AlunoDisciplina;
 
-namespace App\Models;
-
+use App\Domain\Models\Aluno\Aluno;
+use App\Domain\Models\Disciplina\Disciplina;
+use App\Domain\Models\Nota\Nota;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
