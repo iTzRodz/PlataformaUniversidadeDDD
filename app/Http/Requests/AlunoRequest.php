@@ -24,7 +24,7 @@ class AlunoRequest extends CustomFormRequest
         return [
             'nome' => 'required|min:3|max:255|string',
             'sobrenome' => 'required|min:3|max:255|string',
-            'email' => 'required|string|email:rfc,dns',
+            'email' => 'required|string|email',
             'dataCadastro' => 'required|date',
             'ativo' => 'required|boolean'
         ];
