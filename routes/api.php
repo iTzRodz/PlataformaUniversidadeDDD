@@ -1,12 +1,15 @@
 <?php
 
+use App\Domain\Models\PesquisadorProjeto\PesquisadorProjeto;
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\AlunoDisciplinaController;
 use App\Http\Controllers\BoletimController;
 use App\Http\Controllers\DisciplinaController;
 use App\Http\Controllers\NotaController;
 use App\Http\Controllers\PeriodoController;
+use App\Http\Controllers\PesquisadorProjetoController;
 use App\Models\Disciplina;
+use App\Services\ProjetoService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -57,4 +60,12 @@ Route::prefix('boletim')->group(function () {
 
 Route::prefix('aluno_disciplina')->group(function () {
     Route::post('/store', [AlunoDisciplinaController::class, 'store']);
+});
+
+Route::prefix('projeto')->group(function () {
+    Route::post('/store', [ProjetoService::class, 'store']);
+});
+
+Route::prefix('PesquisadorProjeto')->group(function () {
+    Route::get('/getById/{id}', [PesquisadorProjetoController::class, 'getProjeto']);
 });
